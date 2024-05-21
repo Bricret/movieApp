@@ -31,6 +31,7 @@ export class movieMapper {
         originalTitle: movie.original_title,
         productionCompanies: movie.production_companies.map( company => company.name ),
         vote_average: movie.vote_average,
+        adult: movie.adult,
     }
 
   }

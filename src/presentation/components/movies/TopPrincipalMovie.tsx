@@ -1,17 +1,23 @@
-import {View, Image} from 'react-native';
+import {View, Image, useWindowDimensions} from 'react-native';
 import {ReuseIcons} from '../../../config/Icons/ReuseIcon';
 import {globalColors} from '../../../config/theme/globalTheme';
 import {Button} from 'react-native-paper';
 import LinearGradient from 'react-native-linear-gradient';
 import { Movie } from '../../../core/entities/movie.entity';
+import { useNavigation, NavigationProp } from '@react-navigation/native';
+import { RootStackParam } from '../../navigation/StackNavigation';
 
 export const TopPrincipalMovie = ({ movie }: { movie: Movie }) => {
+
+  const { height: screenHeight } = useWindowDimensions();
+
+  const navigation = useNavigation<NavigationProp<RootStackParam>>();
 
   return (
     <>
       <View
         style={{
-          height: 550,
+          height: screenHeight * 0.7,
           position: 'relative',
         }}>
         <Image
@@ -42,7 +48,8 @@ export const TopPrincipalMovie = ({ movie }: { movie: Movie }) => {
           marginBottom: 30,
         }}
         labelStyle={{fontSize: 16}}
-        onPress={() => console.log('Pressed')}>
+        onPress={() => navigation.navigate('Details', {movieId: movie.id})}
+      >
         Ver mas
       </Button>
     </>

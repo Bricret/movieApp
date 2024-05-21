@@ -19,4 +19,5 @@ export interface FullMovie extends Movie {
     originalTitle:       string;
     productionCompanies: string[];
     vote_average:        number;
+    adult:               boolean;
 }
