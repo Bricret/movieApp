@@ -1,8 +1,11 @@
-import {Image, StyleSheet, Text, View, useWindowDimensions} from 'react-native';
+import {Alert, Image, Pressable, StyleSheet, Text, View, useWindowDimensions} from 'react-native';
 import {FullMovie} from '../../../../core/entities/movie.entity';
 import {useNavigation} from '@react-navigation/native';
 import { globalColors } from '../../../../config/theme/globalTheme';
 import { ScrollView } from 'react-native-gesture-handler';
+import { Button } from 'react-native-paper';
+import { ReuseIcons } from '../../../../config/Icons/ReuseIcon';
+import { IconButtons } from '../../shared/IconButtons';
 
 interface Props {
   movie: FullMovie;
@@ -42,7 +45,27 @@ export const MovieHeader = ({movie}: Props) => {
                 HD
             </Text>
         </View>
+        <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 15,   }}>
+          <Button 
+            mode='contained'
+            icon={ () => <ReuseIcons iconName='play' size={18} color='white' /> }
+            style={{ backgroundColor: globalColors.secondary, width: '78%' }}
+            labelStyle={{ fontSize: 17 }}
+            onPress={() => Alert.alert('Muy pronto', 'Esta funcionalidad estará disponible en la próxima actualización')}   
+          >
+            <Text>Reproducir</Text>
+          </Button>
+          <IconButtons iconName='heart' size={25} color='white' />
+          <IconButtons 
+            iconName='cloud-download-outline' 
+            size={25} 
+            color='white' 
+            styles={{ marginLeft: -2}}
+            colorSelected='green'
+          />
+        </View>
       </View>
+      
 
     </ScrollView>
   );
