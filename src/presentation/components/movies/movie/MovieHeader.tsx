@@ -1,17 +1,26 @@
-import {Alert, Image, Pressable, StyleSheet, Text, View, useWindowDimensions} from 'react-native';
-import {FullMovie} from '../../../../core/entities/movie.entity';
-import {useNavigation} from '@react-navigation/native';
-import { globalColors } from '../../../../config/theme/globalTheme';
-import { ScrollView } from 'react-native-gesture-handler';
 import { Button } from 'react-native-paper';
-import { ReuseIcons } from '../../../../config/Icons/ReuseIcon';
+import {Alert, Image, Pressable, StyleSheet, Text, View, useWindowDimensions} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+
+import { globalColors } from '../../../../config/theme/globalTheme';
 import { IconButtons } from '../../shared/IconButtons';
+import { ReuseIcons } from '../../../../config/Icons/ReuseIcon';
+import { ScrollView } from 'react-native-gesture-handler';
 
 interface Props {
-  movie: FullMovie;
+  MovieHeaderData: {
+    title: string;
+    poster: string;
+    vote_average: number;
+    realaseDate: Date;
+    duration: number;
+    adult: boolean;
+  }
 }
 
-export const MovieHeader = ({movie}: Props) => {
+export const MovieHeader = ( { MovieHeaderData } : Props) => {
+
+  const { title, poster, vote_average, realaseDate, duration, adult } = MovieHeaderData;
   const {height: screenHeight} = useWindowDimensions();
   const navigation = useNavigation();
 
@@ -20,26 +29,26 @@ export const MovieHeader = ({movie}: Props) => {
       <View style={{ ...styles.imageContainer, height: screenHeight * 0.7 }}>
         <View style={ styles.imageBorder }>
             <Image
-                source={{ uri: movie.poster }}
+                source={{ uri: poster }}
                 style={ styles.posterImage }
             />
         </View>
       </View>
 
       <View style={ styles.marginContainer }>
-        <Text style={ styles.title }>{ movie.title }</Text>
+        <Text style={ styles.title }>{ title }</Text>
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-            <Text style={[styles.voteText, { color: (movie.vote_average >= 6) ? 'green' : 'red' }]}>
-                { movie.vote_average.toFixed(1) }/10
+            <Text style={[styles.voteText, { color: (vote_average >= 6) ? 'green' : 'red' }]}>
+                { vote_average.toFixed(1) }/10
             </Text>
             <Text style={ styles.voteText }>
-                { new Date(movie.realaseDate).getFullYear() }
+                { new Date(realaseDate).getFullYear() }
             </Text>
             <Text style={ styles.voteText }>
-                { movie.duration } min
+                { duration } min
             </Text>
             <Text style={ styles.voteText }>
-                { movie.adult ? 'R' : 'PG' }
+                { adult ? 'R' : 'PG' }
             </Text>
             <Text style={ styles.voteText }>
                 HD
