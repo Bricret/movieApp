@@ -14,10 +14,7 @@ export default function BottomTabsNavigation() {
   return (
     <Tab.Navigator
       screenOptions={{
-        header: () => (
-          <HeaderBottomNavigation />
-        ),
-        headerTransparent: true,
+        headerShown: false,
       }}
       tabBar={({ navigation, state, descriptors, insets }) => (
         <BottomNavigation.Bar
