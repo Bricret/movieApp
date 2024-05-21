@@ -65,8 +65,13 @@ export const MovieHeader = ({movie}: Props) => {
           />
         </View>
       </View>
-      
-
+        <View style={ styles.backButton }>
+          <Pressable onPress={ () => navigation.goBack() }>
+            <Text style={ styles.backButtonText }>
+              <ReuseIcons iconName='arrow-back-outline' size={30} color={globalColors.gray} />
+            </Text>
+          </Pressable>
+        </View>
     </ScrollView>
   );
 };
@@ -106,6 +111,9 @@ const styles = StyleSheet.create({
     elevation: 9,
     top: 35,
     left: 10,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    padding: 5,
+    borderRadius: 20,
   },
   backButtonText: {
     color: 'white',
