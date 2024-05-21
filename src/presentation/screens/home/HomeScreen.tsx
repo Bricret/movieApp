@@ -7,14 +7,17 @@ import { useMovies } from "../../hooks/useMovies"
 
 export const HomeScreen = () => {
 
-  const { isLoading, nowPlaying, popular, topRated, upComing, popularNextPage } = useMovies()
+  const { 
+    isLoading, nowPlaying, popular, 
+    topRated, upComing, popularNextPage, 
+    topRatedNextPage, upComingNextPage 
+  } = useMovies()
 
   if (isLoading) return (<Text>Loading...</Text>)
 
   return (
     <ScrollView style={{ backgroundColor: globalColors.background }}>
     <View style={{ backgroundColor: globalColors.background, flex: 1, position: 'relative' }}>
-
 
       <TopPrincipalMovie movie={nowPlaying[0]} />
 
@@ -25,10 +28,18 @@ export const HomeScreen = () => {
       />
 
 
-      <HorizontalCarousel movies={ topRated } title="Mejor Catalogadas" />
+      <HorizontalCarousel 
+        movies={ topRated } 
+        title="Mejor Catalogadas"
+        loadNextPage={ topRatedNextPage }
+      />
 
 
-      <HorizontalCarousel movies={ upComing } title="Proximamente" />
+      <HorizontalCarousel 
+        movies={ upComing }
+        title="Proximamente" 
+        loadNextPage={ upComingNextPage }
+      />
     </View>
     </ScrollView>
   )

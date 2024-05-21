@@ -4,6 +4,8 @@ import { moviesNowPlayingUseCase, moviesTopRatedUseCase, moviesUpComingUseCases,
 import { useEffect, useState } from "react"
 
 let popularPageNumber = 1
+let topRatedPageNumber = 1
+let upComingPageNumber = 1
 
 export const useMovies = () => {
 
@@ -49,6 +51,7 @@ export const useMovies = () => {
 
 
   return {
+    // States
     nowPlaying,
     upComing,
     topRated,
@@ -62,6 +65,22 @@ export const useMovies = () => {
             page: popularPageNumber
         })
         setPopular( prev => [ ...prev, ...popularMovies ] )
+    },
+
+    topRatedNextPage: async () => {
+        topRatedPageNumber++
+        const topRatedMovies = await moviesTopRatedUseCase( movieDBFetcher, {
+            page: topRatedPageNumber
+        })
+        setTopRated( prev => [ ...prev, ...topRatedMovies ] )
+    },
+
+    upComingNextPage: async () => {
+        upComingPageNumber++
+        const upComingMovies = await moviesUpComingUseCases( movieDBFetcher, {
+            page: upComingPageNumber
+        })
+        setUpComing( prev => [ ...prev, ...upComingMovies ] )
     }
   }
 }
