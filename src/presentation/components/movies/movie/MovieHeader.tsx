@@ -25,7 +25,7 @@ export const MovieHeader = ( { MovieHeaderData } : Props) => {
   const navigation = useNavigation();
 
   return (
-    <ScrollView style={{ backgroundColor: globalColors.background }}>
+    <>
       <View style={{ ...styles.imageContainer, height: screenHeight * 0.7 }}>
         <View style={ styles.imageBorder }>
             <Image
@@ -81,7 +81,7 @@ export const MovieHeader = ( { MovieHeaderData } : Props) => {
             </Text>
           </Pressable>
         </View>
-    </ScrollView>
+    </>
   );
 };
 

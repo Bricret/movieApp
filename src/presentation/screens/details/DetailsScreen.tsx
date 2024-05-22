@@ -1,9 +1,11 @@
-import { useRoute } from "@react-navigation/native"
 import { StackScreenProps } from "@react-navigation/stack"
-import { Text, View } from "react-native"
+import { Text } from "react-native"
 import { RootStackParam } from "../../navigation/StackNavigation"
 import { useMovie } from "../../hooks/useMovie"
 import { MovieHeader } from "../../components/movies/movie/MovieHeader"
+import { MovieDetails } from "../../components/movies/movie/MovieDetails"
+import { globalColors } from "../../../config/theme/globalTheme"
+import { ScrollView } from "react-native-gesture-handler"
 
 interface Props extends StackScreenProps<RootStackParam, 'Details'> {}
 
@@ -23,9 +25,12 @@ export const DetailsScreen = ({ route }: Props) => {
   }
 
   return (
-    <View>
+    <ScrollView style={{ backgroundColor: globalColors.background }}>
+
       <MovieHeader MovieHeaderData={MovieHeaderData} />
-    </View>
+
+      <MovieDetails movie={movie!} />
+    </ScrollView>
   )
 }
 

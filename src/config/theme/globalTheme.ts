@@ -17,14 +17,13 @@ export const globalTheme = StyleSheet.create({
 
     container: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: globalColors.background,
         padding: 20
     },
 
     title: {
         fontSize: 23,
         fontWeight: '400',
-        marginLeft: 10,
         marginBottom: 10,
         color: 'white'
     },
@@ -37,5 +36,11 @@ export const globalTheme = StyleSheet.create({
         justifyContent: 'center',
         marginVertical: 10
     },
+    information: {
+        color: globalColors.gray,
+        fontSize: 16,
+        lineHeight: 22,
+        marginBottom: 20
+    }
 
 });
