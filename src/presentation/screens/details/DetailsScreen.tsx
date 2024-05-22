@@ -12,7 +12,7 @@ interface Props extends StackScreenProps<RootStackParam, 'Details'> {}
 export const DetailsScreen = ({ route }: Props) => {
 
   const { movieId } = route.params
-  const { movie, isLoading } = useMovie( movieId )
+  const { movie, isLoading, cast } = useMovie( movieId )
   if ( isLoading ) return <Text>Loading...</Text>
 
   const MovieHeaderData = {
@@ -29,7 +29,7 @@ export const DetailsScreen = ({ route }: Props) => {
 
       <MovieHeader MovieHeaderData={MovieHeaderData} />
 
-      <MovieDetails movie={movie!} />
+      <MovieDetails movie={movie!} cast={cast!} />
     </ScrollView>
   )
 }
