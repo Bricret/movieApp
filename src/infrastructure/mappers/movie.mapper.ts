@@ -1,7 +1,7 @@
 import {FullMovie, Movie} from '../../core/entities/movie.entity';
 import {OneMovieDB, Result} from '../interfaces/movie-db.responses';
 
-const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
+export const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
 
 export class movieMapper {
   static fromMovieDBResultToEntity(result: Result): Movie {
