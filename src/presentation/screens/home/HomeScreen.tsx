@@ -3,6 +3,7 @@ import { ScrollView, Text, View } from "react-native"
 import { globalColors } from "../../../config/theme/globalTheme";
 import { HorizontalCarousel, TopPrincipalMovie } from "../../components";
 import { useMovies } from "../../hooks/useMovies"
+import { FullScreenLoaders } from "../../components/loaders/FullScreenLoaders";
 
 
 export const HomeScreen = () => {
@@ -13,7 +14,7 @@ export const HomeScreen = () => {
     topRatedNextPage, upComingNextPage 
   } = useMovies()
 
-  if (isLoading) return (<Text>Loading...</Text>)
+  if (isLoading) return (<FullScreenLoaders />)
 
   return (
     <ScrollView style={{ backgroundColor: globalColors.background }}>
