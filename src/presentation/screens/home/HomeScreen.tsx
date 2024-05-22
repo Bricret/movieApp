@@ -1,9 +1,8 @@
-import { ScrollView, Text, View } from "react-native"
+import { ScrollView, View } from "react-native"
 
 import { globalColors } from "../../../config/theme/globalTheme";
-import { HorizontalCarousel, TopPrincipalMovie } from "../../components";
+import { HorizontalCarousel, TopPrincipalMovie, FullScreenLoaders } from "../../components";
 import { useMovies } from "../../hooks/useMovies"
-import { FullScreenLoaders } from "../../components/loaders/FullScreenLoaders";
 
 
 export const HomeScreen = () => {

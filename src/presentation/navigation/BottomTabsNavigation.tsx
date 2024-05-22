@@ -4,7 +4,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { FavoritiesScreen, SaveScreen } from '../screens';
 import { globalColors } from '../../config/theme/globalTheme';
-import { HeaderBottomNavigation } from '../components';
 import { ReuseIcons } from '../../config/Icons/ReuseIcon';
 import { StackNavigation } from './StackNavigation';
 

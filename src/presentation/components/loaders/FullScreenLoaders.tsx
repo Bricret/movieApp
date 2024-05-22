@@ -1,5 +1,6 @@
 import { View } from "react-native"
 import { ActivityIndicator, Text } from "react-native-paper"
+
 import { globalColors } from '../../../config/theme/globalTheme';
 
 

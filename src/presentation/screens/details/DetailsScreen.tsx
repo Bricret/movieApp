@@ -1,11 +1,10 @@
 import { StackScreenProps } from "@react-navigation/stack"
+import { ScrollView } from "react-native-gesture-handler"
+
+import { globalColors } from "../../../config/theme/globalTheme"
+import { MovieHeader, MovieDetails, FullScreenLoaders } from "../../components"
 import { RootStackParam } from "../../navigation/StackNavigation"
 import { useMovie } from "../../hooks/useMovie"
-import { MovieHeader } from "../../components/movies/movie/MovieHeader"
-import { MovieDetails } from "../../components/movies/movie/MovieDetails"
-import { globalColors } from "../../../config/theme/globalTheme"
-import { ScrollView } from "react-native-gesture-handler"
-import { FullScreenLoaders } from "../../components/loaders/FullScreenLoaders"
 
 interface Props extends StackScreenProps<RootStackParam, 'Details'> {}
 
